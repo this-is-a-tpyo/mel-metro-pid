@@ -1,0 +1,29 @@
+/* kudos to transportvic.me */
+
+@font-face {
+    font-family: NetworkSansLight;
+    font-display: fallback;
+    font-style: normal;
+    src: local('Network Sans K'), local('NetworkSans-K-Light'), local('Network Sans 2018 Light'), url('../fonts/NetworkSans-2018-Light.ttf');
+}
+
+@font-face {
+    font-family: NetworkSansRegular;
+    font-display: fallback;
+    font-style: normal;
+    src: local('Network Sans K'), local('NetworkSans-K-Regular'), local('Network Sans 2018 Regular'), url('../fonts/NetworkSans-2018-Regular.ttf');
+}
+
+@font-face {
+    font-family: NetworkSansMedium;
+    font-display: fallback;
+    font-style: normal;
+    src: local('Network Sans K'), local('NetworkSans-K-Medium'), local('Network Sans 2018 Medium'), url('../fonts/NetworkSans-2018-Medium.ttf');
+}
+
+@font-face {
+    font-family: NetworkSansBold;
+    font-display: fallback;
+    font-style: normal;
+    src:local('Network Sans K'), local('NetworkSans-K-Bold'), local('Network Sans 2018 Bold'), url('../fonts/NetworkSans-2018-Bold.ttf');
+}

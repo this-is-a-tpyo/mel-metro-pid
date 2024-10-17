@@ -1,0 +1,337 @@
+body {
+    margin: 0;
+    font-size: 1.5rem;
+    display: flex;
+    height: 100vh;
+}
+
+#main {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    border-top: 1.5rem solid var(--line-colour);
+    padding: 1.5rem;
+    padding-top: 1rem;
+    flex: 1;
+}
+
+.title-row {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 0.75rem;
+}
+
+.time {
+    font-family: NetworkSansLight;
+}
+
+.title-row .time {
+    font-size: 4.25rem;
+    margin-top: auto;
+    line-height: 1.225;
+}
+
+.title-row .dest {
+    font-size: 5rem;
+}
+
+.title-row .time {    
+    margin-right: 1.5rem;
+}
+
+.dest {
+    font-family: NetworkSansBold;
+}
+
+.title-row .dest {
+    flex: 1;
+}
+
+.eta {
+    background-color: black;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.title-row .eta {
+    width: 17.5rem;
+    font-size: 4rem;
+}
+
+#subtitle, .subtitle {
+    font-family: NetworkSansRegular;
+}
+
+#subtitle {
+    font-size: 2rem;
+}
+
+.bottom-row {
+    display: flex;
+    flex-direction: row;
+    margin-top: auto;
+}
+
+.next-services {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    margin-right: 0.8rem;
+}
+
+.next-service {
+    display: flex;
+    flex-direction: row;
+    border-top: 0.1rem solid black;
+    padding: 0.5rem 0;
+}
+
+.next-service .time, .next-service .dest {
+    font-size: 2rem;
+    padding-top: 0.25rem;
+    height: 100%;
+}
+
+.next-service .time {
+    width: 8rem;
+}
+
+.next-service .subtitle, .next-service.empty .dest {
+    flex: 1;
+    height: 100%;
+    /* display: flex;
+    align-items: center; */
+    padding-top: 0.6rem;
+}
+
+.next-service .eta {
+    width: 8rem;
+    height: 3rem;
+    font-size: 2rem;
+}
+
+.half {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+}
+
+.line-indicator {
+    background-color: var(--line-colour);
+    min-width: 0.5rem;
+    height: 100%;
+    margin-right: 0.5rem;
+}
+
+#clock {
+    font-size: 2.5rem;
+    width: 18.5rem;
+    height: calc(2 * (2 * 0.5rem + 3rem));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 0.1rem solid black;
+    font-family: NetworkSansBold;
+}
+
+.main {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    width: calc(100vw - 2 * 1.5rem);
+    top: 0;
+    bottom: 0;
+    opacity: 1;
+}
+
+#stations ul {
+    flex: 1;
+    margin: 0;
+    padding: 0;
+}
+
+#stations ul .start, #stations ul li {
+    border-left: 0.5rem solid var(--line-colour);
+}
+
+#stations ul .start {
+    height: 1rem;
+}
+
+#stations ul:not(:first-child) .start, #stations ul li.continue {
+    background-image: linear-gradient(to bottom, var(--line-colour) 50%, transparent 50%);
+    background-position: top left;
+    background-repeat: repeat-y;
+    background-size: 0.5rem 0.425rem;
+    border: none;
+}
+
+#stations ul:not(:last-child) .end {
+    height: 1rem;
+    background-image: linear-gradient(to bottom, var(--line-colour) 50%, transparent 50%);
+    background-position: top left;
+    background-repeat: repeat-y;
+    background-size: 0.5rem 0.425rem;
+    border: none;
+}
+
+#stations ul li {
+    list-style: none;
+    margin: 0;
+    padding: 0.1rem 0;
+    width: fit-content;
+}
+
+#stations ul li:not(.skipped)::before {
+    content: '';
+    display: block;
+    width: 0.45rem;
+    height: 0.375rem;
+    margin-top: -0.35rem;
+    background-color: var(--line-colour);
+    position: relative;
+    top: 1.125rem;
+}
+
+#stations ul li span {
+    margin-left: 0.6rem;
+    padding: 0.1rem 0.4rem;
+}
+
+#stations ul:first-child li:first-of-type span {
+    background-color: var(--line-colour);
+    color: white;
+}
+
+#stations ul:last-child li:last-of-type {
+    background-image: linear-gradient(to bottom, var(--line-colour) 100%, transparent 0%);
+    background-position: top left;
+    background-repeat: no-repeat;
+    background-size: 0.5rem 1rem;
+    border: none;
+    padding-left: 0.5rem;
+}
+
+#stations ul:last-child li:last-of-type::before {
+    width: calc(2 * 0.45rem + 0.5rem - 0.05rem);
+    left: -0.9rem;
+}
+
+.special #stations ul:first-child li:first-of-type span {
+    color: black;
+}
+
+#stations ul li.skipped, #stations ul li.continue {
+    color: #d7d2cb;
+}
+
+#stations ul *:not(.skipped) + li.skipped::before {
+    content: '';
+    display: block;
+    border-right: 0.5rem solid var(--line-colour);
+    border-bottom: 0.5rem solid var(--line-colour);
+    box-shadow: 0.25rem 0.25rem 0 white;
+    width: 0.75rem;
+    aspect-ratio: 1 / 1;
+    transform: rotate(45deg);
+    margin-top: calc(-1rem * (sqrt(2 * pow(0.75, 2))) - 0.175rem);
+    position: relative;
+    left: calc(-1rem * sqrt(2 * pow(0.75, 2)) + 0.175rem);
+    top: 1.25rem;
+}
+
+.hide {
+    display: none;
+}
+
+.next-service.empty {
+    --line-colour: var(--special-colour);
+}
+
+.next-service.empty .time {
+    width: 5rem;
+}
+
+.next-service.empty .dest {
+    font-family: NetworkSansRegular;
+    font-size: 1.5rem;
+}
+
+#main.announcement {
+    --line-colour: transparent;
+    transition: border-top 1s;
+}
+
+#main.announcement #stations, #main:not(.announcement) #announcement, #main.announcement .title-row, #main.announcement #subtitle {
+    opacity: 0;
+}
+
+#main.announcement #announcement, #main:not(.announcement) #stations, #main:not(.announcement) .title-row, #main:not(.announcement) #subtitle {
+    opacity: 1;
+}
+
+#main.announcement .title-row, #main.announcement #subtitle {
+    transition: opacity 0.5s;
+}
+
+#main.announcement #announcement, #main.announcement #stations {
+    transition: opacity 1s;
+}
+
+#announcement {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-family: NetworkSansBold;
+    font-size: 7.75vw;
+    line-height: 1;
+}
+
+#stations ul li.continue {
+    font-style: italic;
+    background-size: 0.5rem 0.45rem;
+}
+
+#stations ul li.continue::before {
+    content: unset;
+}
+
+#stations ul li.continue span {
+    margin-left: 0.85rem;
+}
+
+.title-row, #subtitle {
+    z-index: 10;
+}
+
+#depart-bar {
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: calc(1.5rem + 1rem + 1.2 * 5rem + 0.75rem + 1.2 * 2rem + 0.75rem);
+    background-color: #0072ce;
+    width: 100vw;
+}
+
+#depart-bar.inactive {
+    width: 0;
+}
+
+#depart-bar:not(.inactive) {
+    transition: linear 30s;
+}
+
+#main-container {
+    flex: 1;
+    position: relative;
+    margin: 0.75rem 0;
+    border-top: 0.2rem solid black;
+}

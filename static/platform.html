@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <link rel="stylesheet" href="./assets/css/fonts.css"/>
+        <link rel="stylesheet" href="./assets/css/colours.css"/>
+        <link rel="stylesheet" href="./assets/css/style.css"/>
+        <link rel="stylesheet" href="./assets/css/layout.css"/>
+        <script src="./assets/js/axios/axios.min.js"></script>
+    </head>
+    <body>
+        <div id="main" class="announcement">
+            <div id="depart-bar" class="inactive"></div>
+            <div class="title-row">
+                <div id="time" class="time">--</div>
+                <div id="dest" class="dest">--</div>
+                <div id="eta" class="eta">-- min</div>
+            </div>
+            <div id="subtitle">--</div>
+            <div id="main-container">
+                <div id="stations" class="main"></div>
+                <div id="announcement" class="main"></div>
+            </div>
+            <div class="bottom-row">
+                <div class="next-services">
+                    <div id="next-service-1" class="next-service empty">
+                        <div class="half">
+                            <div class="line-indicator"></div>
+                            <div id="ns1-time" class="time"></div>
+                            <div id="ns1-dest" class="dest">--</div>
+                        </div>
+                        <div class="half">
+                            <div id="ns1-subtitle" class="subtitle">--</div>
+                            <div id="ns1-eta" class="eta">-- min</div>
+                        </div>
+                    </div>
+                    <div id="next-service-2" class="next-service empty">
+                        <div class="half">
+                            <div class="line-indicator"></div>
+                            <div id="ns2-time" class="time"></div>
+                            <div id="ns2-dest" class="dest">--</div>
+                        </div>
+                        <div class="half">
+                            <div id="ns2-subtitle" class="subtitle">--</div>
+                            <div id="ns2-eta" class="eta">-- min</div>
+                        </div>
+                    </div>
+                </div>
+                <div id="clock">11:59:59 pm</div>
+            </div>
+        </div>
+        <script src="assets/js/pid.js"></script>
+    </body>
+</html>

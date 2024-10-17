@@ -1,0 +1,26 @@
+/* https://www.righttoknow.org.au/request/5149/response/13973/attach/4/PTVH2977%20MSG%202018%202.4%20Colour%20v10%20PA%20v2.pdf */
+
+body {
+    --sandringham-colour: #f178af;
+    --crosscity-colour: #028430;
+    --caulfield-colour: #279fd5;
+    --burnley-colour: #152c6b;
+    --northern-colour: #ffbe00;
+    --clifton-colour: #be1014;
+    --special-colour: #95979a;
+    --vline-colour: #7f0d82;
+}
+
+.bg { background-color: var(--line-colour); color: white; }
+.fg { color: var(--line-colour); }
+
+.sandringham { --line-colour: var(--sandringham-colour); }
+.crosscity { --line-colour: var(--crosscity-colour); }
+.caulfield { --line-colour: var(--caulfield-colour); }
+.burnley { --line-colour: var(--burnley-colour); }
+.northern { --line-colour: var(--northern-colour); }
+.clifton { --line-colour: var(--clifton-colour); }
+.special { --line-colour: var(--special-colour); }
+.vline { --line-colour: var(--vline-colour); }
+
+.special .bg { color: black; }
